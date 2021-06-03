@@ -1,7 +1,26 @@
 import logo from './logo.svg';
+import React, { useEffect } from "react";
+
 import './App.css';
 
 function App() {
+  let message = "test";
+  useEffect(() => {
+    fetch("/sample-end-point")
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +34,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React {message}
         </a>
       </header>
     </div>
