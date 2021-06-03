@@ -6,19 +6,19 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: test-app
+      app: hello
       tier: backend
       track: stable
   replicas: 2
   template:
     metadata:
       labels:
-        app: test-app
+        app: hello
         tier: backend
         track: stable
     spec:
       containers:
-        - name: test-app
+        - name: hello
           image: grajamca/test-app:0.0.2
           ports:
             - name: http
@@ -27,10 +27,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-app
+  name: hello
 spec:
   selector:
-    app: test-app
+    app: hello
     tier: backend
   ports:
   - protocol: TCP
